@@ -95,7 +95,7 @@ export default function TopDeals() {
                       {/* savings pill */}
                       <div className="absolute bottom-3 right-3">
                         <span className="bg-neutral-900/80 backdrop-blur text-white text-[10px] font-semibold px-2 py-1 rounded-pill">
-                          Save ${savings.toFixed(2)}
+                          Save ₦{savings.toLocaleString()}
                         </span>
                       </div>
                     </div>
@@ -106,10 +106,10 @@ export default function TopDeals() {
                       </h3>
                       <div className="flex items-baseline gap-2 mt-2">
                         <span className="text-lg font-bold text-brand-pink">
-                          ${product.price.toFixed(2)}
+                          ₦{product.price.toLocaleString()}
                         </span>
                         <span className="text-sm text-neutral-400 line-through">
-                          ${product.compareAtPrice!.toFixed(2)}
+                          ₦{product.compareAtPrice!.toLocaleString()}
                         </span>
                       </div>
                       <div className="flex items-center gap-1 mt-2 text-[10px] text-brand-pink font-medium">

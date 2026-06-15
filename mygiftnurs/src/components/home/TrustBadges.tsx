@@ -4,7 +4,7 @@ import { Truck, ShieldCheck, RotateCcw, Headphones } from "lucide-react"
 import ScrollReveal from "@/components/ui/ScrollReveal"
 
 const badges = [
-  { icon: Truck, label: "Free Shipping", sublabel: "On orders above $50" },
+  { icon: Truck, label: "Free Shipping", sublabel: "On orders above ₦112,500" },
   { icon: ShieldCheck, label: "Secure Payment", sublabel: "100% secure checkout" },
   { icon: RotateCcw, label: "Easy Returns", sublabel: "30-day return policy" },
   { icon: Headphones, label: "24/7 Support", sublabel: "Dedicated support team" },
