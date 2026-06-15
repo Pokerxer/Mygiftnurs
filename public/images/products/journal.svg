@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600">
+<defs><linearGradient id="bgjn" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#E6FFEF"/><stop offset="1" stop-color="#D8F5E5"/></linearGradient></defs>
+<rect width="600" height="600" fill="url(#bgjn)"/>
+<circle cx="300" cy="330" r="200" fill="#FFFFFF" opacity="0.6"/>
+<ellipse cx="300" cy="508" rx="150" ry="22" fill="#1A1A2E" opacity="0.07"/>
+<rect x="170" y="200" width="240" height="290" rx="14" fill="#5F9A7D"/>
+<rect x="170" y="200" width="34" height="290" rx="14" fill="#4C8068"/>
+<rect x="226" y="252" width="130" height="14" rx="7" fill="#E6FFEF" opacity="0.8"/>
+<rect x="226" y="284" width="96" height="10" rx="5" fill="#E6FFEF" opacity="0.5"/>
+<path d="M348 420q24 10 0 24" stroke="#E6B84C" stroke-width="6" fill="none"/>
+<g transform="rotate(28 430 330)"><rect x="420" y="210" width="22" height="200" rx="10" fill="#E6B84C"/><path d="M420 410h22l-11 34z" fill="#2F4156"/><rect x="420" y="200" width="22" height="22" rx="8" fill="#C2244A"/></g>
+<g fill="#E8315B" opacity="0.55"><path d="M120 110l6 16 16 6-16 6-6 16-6-16-16-6 16-6z"/><path d="M480 90l4 11 11 4-11 4-4 11-4-11-11-4 11-4z" opacity="0.7"/><path d="M500 480l5 13 13 5-13 5-5 13-5-13-13-5 13-5z" opacity="0.5"/></g></svg>

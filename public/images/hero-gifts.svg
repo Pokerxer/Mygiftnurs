@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 640">
+<defs>
+<linearGradient id="hbig" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F04A71"/><stop offset="1" stop-color="#E8315B"/></linearGradient>
+<linearGradient id="hmed" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#FFE4EC"/></linearGradient>
+</defs>
+<circle cx="360" cy="330" r="250" fill="#FFD6E0" opacity="0.55"/>
+<circle cx="360" cy="330" r="190" fill="#FFFFFF" opacity="0.5"/>
+<!-- back-left lilac box -->
+<g transform="rotate(-8 170 430)">
+<rect x="105" y="380" width="130" height="120" rx="12" fill="#B89BE0"/>
+<rect x="95" y="352" width="150" height="44" rx="10" fill="#C9B2EA"/>
+<rect x="158" y="352" width="24" height="148" fill="#F3E8FF"/>
+</g>
+<!-- back-right cream box -->
+<g transform="rotate(7 540 420)">
+<rect x="470" y="360" width="150" height="140" rx="12" fill="#F5D58A"/>
+<rect x="458" y="330" width="174" height="48" rx="10" fill="#FFE9B8"/>
+<rect x="532" y="330" width="26" height="170" fill="#FFF9E6"/>
+</g>
+<!-- main pink box -->
+<rect x="225" y="290" width="270" height="240" rx="16" fill="url(#hbig)"/>
+<rect x="225" y="290" width="270" height="240" rx="16" fill="#1A1A2E" opacity="0.04"/>
+<rect x="200" y="232" width="320" height="84" rx="14" fill="url(#hmed)" stroke="#FFD6E0" stroke-width="2"/>
+<rect x="340" y="232" width="40" height="298" fill="#FFE4EC"/>
+<path d="M360 232c-46-54-112-36-107 7 4 33 58 17 107-7z" fill="#FFC2D2"/>
+<path d="M360 232c46-54 112-36 107 7-4 33-58 17-107-7z" fill="#FFC2D2"/>
+<path d="M360 232c-30-36-74-24-70 5 2 22 38 11 70-5z" fill="#FFE4EC"/>
+<path d="M360 232c30-36 74-24 70 5-2 22-38 11-70-5z" fill="#FFE4EC"/>
+<circle cx="360" cy="234" r="18" fill="#FFFFFF"/>
+<circle cx="360" cy="234" r="8" fill="#E8315B"/>
+<!-- floating hearts & confetti -->
+<path d="M170 180c-12-12-30-3-26 12 3 11 17 19 26 26 9-7 23-15 26-26 4-15-14-24-26-12z" fill="#E8315B" opacity="0.85"/>
+<path d="M560 150c-9-9-23-2-20 9 2 9 13 15 20 20 7-5 18-11 20-20 3-11-11-18-20-9z" fill="#F5B8CC"/>
+<path d="M120 320l6 15 15 6-15 6-6 15-6-15-15-6 15-6z" fill="#F5A623"/>
+<path d="M590 300l7 17 17 7-17 7-7 17-7-17-17-7 17-7z" fill="#E8315B" opacity="0.6"/>
+<path d="M250 120l5 12 12 5-12 5-5 12-5-12-12-5 12-5z" fill="#B89BE0"/>
+<circle cx="460" cy="110" r="7" fill="#F5A623"/>
+<circle cx="90" cy="240" r="6" fill="#7FB89A"/>
+<circle cx="620" cy="420" r="7" fill="#B89BE0"/>
+<rect x="430" y="70" width="12" height="12" rx="3" fill="#E8315B" transform="rotate(24 436 76)" opacity="0.6"/>
+<rect x="150" y="90" width="10" height="10" rx="3" fill="#F5B8CC" transform="rotate(-18 155 95)"/>
+<!-- ground shadow -->
+<ellipse cx="360" cy="560" rx="240" ry="26" fill="#1A1A2E" opacity="0.08"/>
+</svg>
