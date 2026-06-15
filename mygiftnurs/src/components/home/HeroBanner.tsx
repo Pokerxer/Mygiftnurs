@@ -1,15 +1,21 @@
 "use client"
 
-import { useRef, useEffect, useState } from "react"
+import { useRef, useEffect, useState, useCallback } from "react"
 import Image from "next/image"
 import Link from "next/link"
-import { ArrowRight, Star } from "lucide-react"
+import { ArrowRight, Star, Truck, RotateCcw, Shield, Gift } from "lucide-react"
 
 const avatarInitials = [
   { initials: "SK", bg: "#F5B8CC" },
   { initials: "MJ", bg: "#B89BE0" },
   { initials: "AL", bg: "#9FCBE8" },
   { initials: "RD", bg: "#F5D58A" },
+]
+
+const headlines = [
+  { text: "Find the Perfect Gift", color: "text-neutral-900" },
+  { text: "Surprise Your Loved Ones", color: "text-neutral-900" },
+  { text: "Celebrate Every Moment", color: "text-neutral-900" },
 ]
 
 const sparkles = [
@@ -23,9 +29,31 @@ const sparkles = [
   { top: "25%", left: "45%", size: 4, color: "#FFD6E0", delay: "0.3s" },
 ]
 
+const trustItems = [
+  { icon: Truck, label: "Free Shipping", sub: "On orders ₦112,500+" },
+  { icon: RotateCcw, label: "Easy Returns", sub: "30-day policy" },
+  { icon: Shield, label: "Secure Pay", sub: "SSL encrypted" },
+  { icon: Gift, label: "Gift Wrapping", sub: "Available" },
+]
+
 export default function HeroBanner() {
   const giftRef = useRef<HTMLDivElement>(null)
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 })
+  const [headlineIndex, setHeadlineIndex] = useState(0)
+  const [isFading, setIsFading] = useState(false)
+
+  const cycleHeadline = useCallback(() => {
+    setIsFading(true)
+    setTimeout(() => {
+      setHeadlineIndex((prev) => (prev + 1) % headlines.length)
+      setIsFading(false)
+    }, 400)
+  }, [])
+
+  useEffect(() => {
+    const interval = setInterval(cycleHeadline, 4000)
+    return () => clearInterval(interval)
+  }, [cycleHeadline])
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
@@ -37,9 +65,11 @@ export default function HeroBanner() {
     return () => window.removeEventListener("mousemove", handleMouseMove)
   }, [])
 
+  const currentHeadline = headlines[headlineIndex]
+
   return (
     <section className="mx-2.5 sm:mx-4 my-3 sm:my-4">
-      <div className="relative rounded-2xl overflow-hidden max-w-7xl mx-auto min-h-[420px] sm:min-h-[480px] lg:min-h-[580px] bg-gradient-to-br from-brand-pink-light via-[#FFF8F6] to-brand-pink-banner">
+      <div className="relative rounded-2xl overflow-hidden max-w-7xl mx-auto min-h-[520px] sm:min-h-[520px] lg:min-h-[580px] bg-gradient-to-br from-brand-pink-light via-[#FFF8F6] to-brand-pink-banner">
         {/* dot pattern */}
         <div
           aria-hidden
@@ -53,7 +83,7 @@ export default function HeroBanner() {
         <div aria-hidden className="absolute -top-32 -right-32 w-96 h-96 rounded-full bg-brand-pink-pale/40 blur-3xl" />
         <div aria-hidden className="absolute -bottom-20 -left-20 w-64 h-64 rounded-full bg-brand-pink/10 blur-2xl" />
 
-        <div className="relative flex flex-col lg:flex-row">
+        <div className="relative flex flex-col lg:flex-row min-h-[520px] sm:min-h-[520px] lg:min-h-[580px]">
           {/* Left Column — Text */}
           <div className="lg:w-[55%] p-5 sm:p-8 md:p-12 lg:p-16 xl:p-20 flex flex-col justify-center z-10">
             <p className="animate-fade-up text-xs sm:text-sm text-neutral-700 font-medium mb-3 sm:mb-4 inline-flex items-center gap-2">
@@ -61,9 +91,13 @@ export default function HeroBanner() {
               Thoughtful Gifts, Happy Moments
             </p>
 
-            <h1 className="font-display text-3xl sm:text-4xl md:text-5xl xl:text-[58px] font-extrabold leading-[1.06]">
-              <span className="animate-fade-up [animation-delay:100ms] text-neutral-900 block">
-                Find the Perfect Gift
+            <h1 className="font-display text-3xl sm:text-4xl md:text-5xl xl:text-[58px] font-extrabold leading-[1.06] min-h-[120px] sm:min-h-[140px] md:min-h-[160px]">
+              <span
+                className={`block transition-all duration-400 ${
+                  isFading ? "opacity-0 translate-y-2" : "opacity-100 translate-y-0"
+                } ${currentHeadline.color}`}
+              >
+                {currentHeadline.text}
               </span>
               <span className="animate-fade-up [animation-delay:200ms] text-brand-pink block mt-0.5 sm:mt-1">
                 For Every Occasion
@@ -83,7 +117,7 @@ export default function HeroBanner() {
                 Shop Now <ArrowRight className="w-4 h-4" />
               </Link>
               <Link
-                href="/shop"
+                href="/shop?sort=newest"
                 className="bg-white/80 backdrop-blur-sm border border-brand-pink-pale text-neutral-700 px-6 py-3 sm:px-8 sm:py-3.5 rounded-pill font-medium text-sm hover:border-brand-pink hover:text-brand-pink hover:bg-white hover:shadow-md hover:-translate-y-0.5 active:scale-[0.97] transition-all duration-300 inline-flex items-center gap-2"
               >
                 Explore Categories
@@ -112,7 +146,7 @@ export default function HeroBanner() {
           </div>
 
           {/* Right Column — Illustration with parallax */}
-          <div className="lg:w-[45%] relative min-h-[260px] sm:min-h-[340px] lg:min-h-[580px] flex items-center justify-center z-10 p-6 sm:p-10">
+          <div className="lg:w-[45%] relative min-h-[260px] sm:min-h-[280px] lg:min-h-[580px] flex items-center justify-center z-10 p-6 sm:p-10">
             {/* sparkles */}
             {sparkles.map((s, i) => (
               <span
@@ -135,7 +169,7 @@ export default function HeroBanner() {
             {/* gift illustration with mouse parallax */}
             <div
               ref={giftRef}
-              className="relative w-full max-w-[480px] aspect-[700/640] animate-float"
+              className="relative w-full max-w-[420px] lg:max-w-[480px] aspect-[700/640] animate-float"
               style={{
                 transform: `translate(${mousePos.x * 8}px, ${mousePos.y * 6}px)`,
                 transition: "transform 0.3s ease-out",
@@ -151,6 +185,23 @@ export default function HeroBanner() {
               />
             </div>
           </div>
+        </div>
+      </div>
+
+      {/* Trust bar below hero */}
+      <div className="max-w-7xl mx-auto mt-3 sm:mt-4">
+        <div className="bg-white rounded-2xl border border-neutral-100 px-4 sm:px-6 py-3 sm:py-4 grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 shadow-sm">
+          {trustItems.map((item) => (
+            <div key={item.label} className="flex items-center gap-2.5 sm:gap-3">
+              <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-brand-pink-light flex items-center justify-center shrink-0">
+                <item.icon className="w-4 h-4 sm:w-5 sm:h-5 text-brand-pink" />
+              </div>
+              <div>
+                <p className="text-xs sm:text-sm font-semibold text-neutral-900 leading-tight">{item.label}</p>
+                <p className="text-[10px] sm:text-xs text-neutral-500">{item.sub}</p>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </section>
